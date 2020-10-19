@@ -5,16 +5,25 @@
     <title>Title</title>
 </head>
 <body>
+<form action="/logout" method="post">
+    <input type="submit" value="Sign Out"/>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+
+</form>
 <div>
     <form method="post" action="main">
         <input type="text" name="text" placeholder="Введите сообщение">
         <input type="text" name="tag" placeholder="Введите сообщение">
         <button type="submit">Отправить</button>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+
     </form>
 </div>
 <form action="filter" method="post">
     <input type="text" name="filter">
     <button type="submit">Найти</button>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+
 </form>
 <div>Список сообщений</div>
 {{#messages}}
